@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html>
+<head translate="no">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Info</title>
+    <!-- Custom fonts for this template-->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+    
+    <link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet">
+    <style>
+        .print-card-body {
+            width: 100%;
+            padding-bottom: 10px;
+        }
+
+        .vartical-table th {
+            width: 20%;
+        }
+
+        .vartical-table td {
+            width: 30%;
+            padding-right: 15px;
+        }
+
+        .horizontal-table {
+            /*width: 100%;*/
+        }
+
+        .table td, .table th {
+            padding: .5rem;
+            font-size: 10px !important;
+        }
+
+        table {
+            page-break-inside: auto
+        }
+
+        tr {
+            page-break-inside: avoid;
+            page-break-after: auto
+        }
+
+        thead {
+            display: table-header-group
+        }
+
+        tfoot {
+            display: table-footer-group
+        }
+
+        h6 {
+            font-size: 14px;
+            background-color: white;
+            color: white !important;
+            padding: 3px;
+        }
+
+        .table thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid !important;
+        }
+
+        span {
+            color: black;
+        }
+
+        p {
+            color: black;
+        }
+        .watermark {
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            font-size:80px!important;
+            font-weight:bold;
+            opacity:0.4;
+            color: red;
+            font-size: 18px;
+            pointer-events: none;
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+        }
+    </style>
+
+
+    <style>
+        body {
+            font-family: 'Nikosh' !important;
+            font-size: 11pt !important;
+        }
+
+        table .btn {
+            font-size: 8pt !important;
+            padding: 3px 5px 3px 5px !important;
+        }
+
+        table th, table td {
+            /*padding: 2px 2px 2px 2px !important;*/
+            color: black !important;
+        }
+
+        .col-form-label {
+            color: #606066 !important;
+            font-weight: bold;
+            padding: 0 0 0 0;
+        }
+
+        .form-control {
+            color: #606066 !important;
+            font-size: 10pt !important;
+            padding: 1px 4px 1px 8px;
+            border: 1px solid #606066;
+            height: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 6px !important;
+        }
+
+        .gj-datepicker-bootstrap [role=right-icon] button {
+            border: 1px solid #606066 !important;
+        }
+
+            .gj-datepicker-bootstrap [role=right-icon] button .gj-icon {
+                top: 5px !important;
+            }
+
+        .nav .nav-item {
+            background: #30994c !important;
+            border-radius: 3px !important;
+        }
+
+        /*Parsly  Section*/
+        input.parsley-success,
+        select.parsley-success,
+        textarea.parsley-success {
+            color: #468847;
+            background-color: #DFF0D8;
+            border: 1px solid #D6E9C6;
+        }
+
+        input.parsley-error,
+        select.parsley-error,
+        textarea.parsley-error {
+            color: #B94A48;
+            background-color: #F2DEDE;
+            border: 1px solid #EED3D7;
+        }
+
+        .parsley-errors-list {
+            margin: 2px 0 3px;
+            padding: 0;
+            list-style-type: none;
+            font-size: 0.9em;
+            line-height: 0.9em;
+            opacity: 0;
+            transition: all .3s ease-in;
+            -o-transition: all .3s ease-in;
+            -moz-transition: all .3s ease-in;
+            -webkit-transition: all .3s ease-in;
+        }
+
+            .parsley-errors-list.filled {
+                opacity: 1;
+            }
+
+        .parsley-type, .parsley-required, .parsley-equalto {
+            color: #ff0000;
+        }
+        /*Parsly  Section*/
+
+        .table-bordered {
+            border-collapse: collapse !important;
+        }
+
+            .table-bordered th {
+                border: 1px solid black;
+            }
+
+            .table-bordered td {
+                border: 1px solid black;
+            }
+
+        .table-bordered-grey {
+            border-collapse: collapse !important;
+        }
+
+            .table-bordered-grey th {
+                border: 1px solid gray;
+            }
+
+            .table-bordered-grey td {
+                border: 1px solid gray;
+            }
+    </style>
+
+</head>
+<body>
+    <div>
+        
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-sm-11">
+            </div>
+            <div class="col-sm-1">
+                <a class="btn btn-facebook" id="btnPrint" onclick="printDiv('reportPage')" style="float:right;color:white;cursor:pointer;" title="Print"><i class="fa fa-print"></i></a>
+            </div>
+        </div> 
+    </div>
+
+<div class="container" id="reportPage">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-md-10">
+                <div style="text-align:center">
+                    <img src="/images/bd-police-logo.png" height="100" width="100" />
+                </div>
+
+                <div style="text-align:right;margin-right:120px;">
+                    <img width="100" height="100" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAf7SURBVHhe7ZGBbt1IDgT3/386OzQkuDTXJXGsedkDkgLKAzSblJ38M/i1W6PTIezTN6R7dxqp&#x2B;9bjbh6&#x2B;0eh0CPv0DenenUbqvvW4m4dvNDodwj59Q7p3p5G6bz3uXoOfYneYU5LmpfGJDu2w2jfmO&#x2B;P9zOET5pSkeWl8okM7rPaN&#x2B;c54P3P4hDklaV4an&#x2B;jQDqt9Y74z3nyYuUksJ&#x2B;yYq9huJ6ckzUvSyU0y5&#x2B;N9LprEcsKOuYrtdnJK0rwkndwkcz7e56JJLCfsmKvYbienJM1L0slNMufjfS6apJNTYrnBvtkh7ZUdrM/cJHM&#x2B;3ueiSTo5JZYb7Jsd0l7ZwfrMTTLn430umqSTU2K5wb7ZIe2VHazP3CRzPt7nokksN6zPnO4i3S6J5cQ6zE0y5&#x2B;N9LprEcsP6zOku0u2SWE6sw9wkcz7e56JJLDesz5zuIt0uieXEOsxNMufjzcVV7M5qTth5I1nNjdW&#x2B;Md8Z72cOn6zmhJ03ktXcWO0b853xfubwyWpO2HkjWc2N1b4x3xnvd7BL8ifkuzzu5uEbyZ&#x2B;Q7/K4m4dvJH9Cvsuvu18//49Iv2hJLCfsdCSW/w7&#x2B;/occEst/B3//Qw6J5b&#x2B;D8c3rL7YiSfOu5E1OV0k37iS78mJk38NVSZp3JW9yukq6cSfZlRcj&#x2B;x6uStK8K3mT01XSjTvJrrwY2dqS5YQd8xOk75TEcrKrY3CXHrNrcLKaE3bMT5C&#x2B;UxLLya6OwV16zK7ByWpO2DE/QfpOSSwnuzoGd&#x2B;nX7OtnIC3slKR5aaRuST6RU6PTuUO3ePgTkjQvjdQtySdyanQ6d&#x2B;gWD39Ckualkbol&#x2B;UROjU7njuUtfpB2SHuzRuqWHdLenYZ1LCedTtH7iwAP0w5pb9ZI3bJD2rvTsI7lpNMpen8R4GHaIe3NGqlbdkh7dxrWsZx0OsVl2l06YZ&#x2B;SNC&#x2B;J5R24S4nlhB3TSN3yJ1y2Vo&#x2B;xT0mal8TyDtylxHLCjmmkbvkTLlurx9inJM1LYnkH7lJiOWHHNFK3/AmtrfSx2Q5pryRpPmuk7ixJ87JDp28d5vRr9vXzgbQ82yHtlSTNZ43UnSVpXnbo9K3DnH7Nvn4&#x2B;kJZnO6S9kqT5rJG6syTNyw6dvnWY02N2DZ6w/q6csGMSyw32qZG6pWEdy4uR&#x2B;TBh/V05YccklhvsUyN1S8M6lhcj82HC&#x2B;rtywo5JLDfYp0bqloZ1LC8uCYvmKqu77NNVOrvsmEbqzhLLZy5TLpmrrO6yT1fp7LJjGqk7SyyfuUy5ZK6yuss&#x2B;XaWzy45ppO4ssXym9ZfaMeYdO1ifeUdiOWGnI0nz0rjr&#x2B;BawA8w7drA&#x2B;847EcsJOR5LmpXHX8S1gB5h37GB95h2J5YSdjiTNS&#x2B;OuM7LrkSdXSTdmP036ZmmkbkksJ9ZhTo9ZHpqrpBuznyZ9szRStySWE&#x2B;swp8csD81V0o3ZT5O&#x2B;WRqpWxLLiXWY02N2DU7e5Ls0Oh3Ddjs5JbvyYmRrS518l0anY9huJ6dkV16MbG2pk&#x2B;/S6HQM2&#x2B;3klOzKi0tiReZmh7Q3a3Q6hH1KLDfYpyTNZ&#x2B;&#x2B;4TG2Judkh7c0anQ5hnxLLDfYpSfPZOy5TW2Judkh7s0anQ9inxHKDfUrSfPaOMc9L1Ejd0kjd2Q5pr3yD3WFOSZqXxl1nZNcjSSN1SyN1ZzukvfINdoc5JWleGnedkV2PJI3ULY3Une2Q9so32B3mlKR5adx1RnY9ckpW8w62y9xcJd2YJZaT1U7HY8eHJ6t5B9tlbq6SbswSy8lqp&#x2B;Ox48OT1byD7TI3V0k3ZonlZLXT8di5BifMKUnzWWO1YxLLDfYpSfNZkuYlsbwY2fMSJWk&#x2B;a6x2TGK5wT4laT5L0rwklhcje16iJM1njdWOSSw32KckzWdJmpfE8mJkPjxhxyRpXnZIeyVJ85KkeUk6eUeS5rN3jPlzkR2TpHnZIe2VJM1LkuYl6eQdSZrP3jHmz0V2TJLmZYe0V5I0L0mal6STdyRpPnvHmPeKJ&#x2B;ybJM1nSSfvaHQ6hP1VO8z98f78gEnSfJZ08o5Gp0PYX7XD3B/vzw&#x2B;YJM1nSSfvaHQ6hP1VO8z93tYL&#x2B;EFzF&#x2B;n2nR3e9E0y5/v&#x2B;NQR&#x2B;0NxFun1nhzd9k8z5vn8NgR80d5Fu39nhTd8kcz7ea3mHxHLCDjVStyRvcpO8yenMyHLxjcRywg41Urckb3KTvMnpzMhy8Y3EcsIONVK3JG9yk7zJ6czIfLjCmzudXetY3oG7HTtY3/KZMe8Vn3hzp7NrHcs7cLdjB&#x2B;tbPjPmveITb&#x2B;50dq1jeQfuduxgfctnxvz5gElWc9LpdFi9wz4lad7VSN3ymF2DE&#x2B;YmWc1Jp9Nh9Q77lKR5VyN1y2N2DU6Ym2Q1J51Oh9U77FOS5l2N1C2P2TU4YW6STk6N1J3tkPa6GtZhbpI0L4/ZNThhbpJOTo3Une2Q9roa1mFukjQvj9k1OGFukk5OjdSd7ZD2uhrWYW6SNC&#x2B;P2TU4YW6SXTlhp2OHTt86zOlOxr18mLlJduWEnY4dOn3rMKc7GffyYeYm2ZUTdjp26PStw5zuZNzbc9juMKdG6pZGp0PYNw3rdHJ6x5j3ik/YHebUSN3S6HQI&#x2B;6ZhnU5O7xjzXvEJu8OcGqlbGp0OYd80rNPJ6R1jnpfeSNJ8lnTyjqvYbienZDUvRvY93CVJ81nSyTuuYrudnJLVvBjZ93CXJM1nSSfvuIrtdnJKVvPif5O//If8&#x2B;vUvSpwyMONRsFkAAAAASUVORK5CYII="></img>
+                </div>
+           
+            <div class="row">
+                <div class="col-8" style="font-family:Kalpurush;font-size:20px;">
+                    <p style="margin-bottom:-5px;">বরাবর,</p>
+                    <p style="margin-bottom:-5px;">অফিসার ইনচার্জ</p>
+                    <p style="margin-bottom:-5px;">&#x9AA;&#x9C2;&#x9AC;&#x9BE;&#x987;&#x9B2; থানা</p>
+                    <p style="margin-bottom:-5px;">&#x99C;&#x9BF;&#x98F;&#x9AE;&#x9AA;&#x9BF;, &#x997;&#x9BE;&#x99C;&#x9C0;&#x9AA;&#x9C1;&#x9B0;।</p>
+                </div>
+                    <div class="col-4" style="font-family:Kalpurush;font-size:20px;font-weight:bold">
+                    <p style="font-size:20px;margin-bottom:-5px;">জিডি ট্র্যাকিং নং: AZQYIF</p>
+                           <p style="font-size:20px;margin-bottom:-5px;">জিডি নং: &#x9EA;&#x9E6;&#x9E7;</p>
+                <p style="font-size:20px;margin-bottom:-5px;">তারিখ: &#x9E7;&#x9E6;/&#x9E6;&#x9EF;/&#x9E8;&#x9E6;&#x9E8;&#x9EA;</p>
+            </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-12" style="font-family:Kalpurush;font-size:20px;">
+                        <span style="font-weight:bold;color:black;font-size:20px">বিষয় : সাধারণ ডায়েরী করার আবেদন প্রসঙ্গে।</span><br /><br />
+                    <span style="color:black;font-size:20px">জনাব,</span><br />
+                    <p style="font-size:20px; text-align:justify;margin-bottom:-2px;">
+                        আমি নিম্নস্বাক্ষরকারী <span>&#x9AE;&#x9CB;&#x983; &#x9B8;&#x9BE;&#x9AE;&#x9B8;&#x9C1;&#x9B2; &#x9AE;&#x9BF;&#x9DF;&#x9BE;</span> <span> (&#x9E8;&#x9ED;)</span>, পিতা: <span>&#x9AE;&#x9CB;&#x983; &#x99C;&#x9BE;&#x9AE;&#x9BE;&#x9B2; &#x9AE;&#x9BF;&#x9DF;&#x9BE;</span>, মাতা :<span> &#x9AE;&#x9CB;&#x99B;&#x9BE;&#x983; &#x9A8;&#x9BE;&#x99C;&#x9AE;&#x9BE; &#x9AC;&#x9C7;&#x997;&#x9AE;</span>, জাতীয় পরিচয় পত্র নং :
+<span>&#x9EE;&#x9E8;&#x9ED;&#x9E9;&#x9EA;&#x9E8;&#x9E7;&#x9EE;&#x9EB;&#x9E8;</span>                        ,&#x9A0;&#x9BF;&#x995;&#x9BE;&#x9A8;&#x9BE;(&#x9B8;&#x9CD;&#x9A5;&#x9BE;&#x9DF;&#x9C0;) --, &#x997;&#x9CD;&#x9B0;&#x9BE;&#x9AE; -&#x9AE;&#x9A6;&#x9A8;&#x9AE;&#x9C1;&#x9B0;&#x9A4;, &#x987;&#x989;&#x9A8;&#x9BF;&#x9DF;&#x9A8;/&#x993;&#x9DF;&#x9BE;&#x9B0;&#x9CD;&#x9A1; -&#x9AC;&#x9B0;&#x987;&#x989;&#x9B0;&#x9BF;, &#x9A5;&#x9BE;&#x9A8;&#x9BE; -&#x9AC;&#x9BE;&#x9A8;&#x9BF;&#x9DF;&#x9BE;&#x99A;&#x982;, &#x99C;&#x9C7;&#x9B2;&#x9BE; -&#x9B9;&#x9AC;&#x9BF;&#x997;&#x99E;&#x9CD;&#x99C; &#x993; &#x9A0;&#x9BF;&#x995;&#x9BE;&#x9A8;&#x9BE;(&#x9AC;&#x9B0;&#x9CD;&#x9A4;&#x9AE;&#x9BE;&#x9A8;)--, &#x997;&#x9CD;&#x9B0;&#x9BE;&#x9AE;-&#x9AE;&#x9A6;&#x9A8;&#x9AE;&#x9C1;&#x9B0;&#x9A4;, &#x987;&#x989;&#x9A8;&#x9BF;&#x9DF;&#x9A8;/&#x993;&#x9DF;&#x9BE;&#x9B0;&#x9CD;&#x9A1;-&#x9AC;&#x9B0;&#x987;&#x989;&#x9B0;&#x9BF;, &#x9A5;&#x9BE;&#x9A8;&#x9BE;-&#x9AC;&#x9BE;&#x9A8;&#x9BF;&#x9DF;&#x9BE;&#x99A;&#x982;, &#x99C;&#x9C7;&#x9B2;&#x9BE;-&#x9B9;&#x9AC;&#x9BF;&#x997;&#x99E;&#x9CD;&#x99C; , মোবাইল নং -&#x9E6;&#x9E7;&#x9E9;&#x9E9;&#x9E8;&#x9EC;&#x9EF;&#x9E7;&#x9ED;&#x9E9;&#x9EB;।
+                    </p><br />
+                        <p style="font-size:20px; text-align:justify;margin-bottom:-2px;">
+                    এই মর্মে জানাচ্ছি যে, &#x997;&#x9A4; &#x9B0;&#x9CB;&#x99C; &#x9B8;&#x9CB;&#x9AE;&#x9AC;&#x9BE;&#x9B0;, &#x9EF; &#x9B8;&#x9C7;&#x9AA;&#x9CD;&#x99F;&#x9C7;&#x9AE;&#x9CD;&#x9AC;&#x9B0; &#x9E8;&#x9E6;&#x9E8;&#x9EA; &#x996;&#x9CD;&#x9B0;&#x9BF;&#x983; &#x9B8;&#x995;&#x9BE;&#x9B2; &#x9E7;&#x9E6;:&#x9E9;&#x9E6; ঘটিকার সময়
+                    &#x9AA;&#x9C2;&#x9AC;&#x9BE;&#x987;&#x9B2; থানাধীন &#x993;&#x9DF;&#x9BE;&#x9B0;&#x9CD;&#x9A1; &#x9A8;&#x982;-&#x9EA;&#x9E8; ইউনিয়ন/ওয়ার্ড এর &#x9B8;&#x9BE;&#x9A4;&#x9AA;&#x9CB;&#x9DF;&#x9BE; এলাকা থেকে 
+                        <span>আমার</span>
+                    &#x9A1;&#x995;&#x9C1;&#x9AE;&#x9C7;&#x9A3;&#x9CD;&#x99F;
+                                <span>হারিয়ে গিয়েছে </span>
+
+।
+                            <span>নিম্নে আমার &#x9A1;&#x995;&#x9C1;&#x9AE;&#x9C7;&#x9A3;&#x9CD;&#x99F; এর বিস্তারিত বিবরণ ও ঘটনার বিবরণ প্রদান করা হলো।</span>
+                </p>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12" style="font-family:Kalpurush;font-size:15px;">
+                        <span style="font-weight:bold;color:black;font-size:20px">আমার &#x9A1;&#x995;&#x9C1;&#x9AE;&#x9C7;&#x9A3;&#x9CD;&#x99F; এর বিবরণ:</span><br />
+                <table border="0" width="100%">
+                        <tr>
+                                <th>ধরণ</th>
+                                <th>:</th>
+                                <td>&#x9AA;&#x9BE;&#x9B8;&#x9AA;&#x9CB;&#x9B0;&#x9CD;&#x99F;</td>
+
+
+                        </tr>
+                        <tr>
+                                <th>শ্রেণী</th>
+                                <th>:</th>
+                                <td>&#x9B8;&#x9AC;&#x9C1;&#x99C;</td>
+
+                                <th>পাসপোর্ট নং</th>
+                                <th>:</th>
+                                <td>BW0089363</td>
+
+                        </tr>
+                        <tr>
+
+
+                        </tr>
+                        <tr>
+                                <th>প্রদানকারী কর্তৃপক্ষ</th>
+                                <th>:</th>
+                                <td>&#x987;&#x9AE;&#x9BF;&#x997;&#x9CD;&#x9B0;&#x9C7;&#x9B6;&#x9A8; &#x993; &#x9AA;&#x9BE;&#x9B8;&#x9AA;&#x9CB;&#x9B0;&#x9CD;&#x99F; &#x985;&#x9A7;&#x9BF;&#x9A6;&#x9AA;&#x9CD;&#x9A4;&#x9B0;</td>
+
+                                <th>জন্ম তারিখ</th>
+                                <th>:</th>
+                                <td>&#x9E7; &#x99C;&#x9BE;&#x9A8;&#x9C1;&#x9DF;&#x9BE;&#x9B0;&#x9BF;, &#x9E7;&#x9EF;&#x9EF;&#x9ED;</td>
+
+                        </tr>
+                        <tr>
+
+                                <th>জাতীয়তা</th>
+                                <th>:</th>
+                                <td>&#x9AC;&#x9BE;&#x982;&#x9B2;&#x9BE;&#x9A6;&#x9C7;&#x9B6;&#x9C0;</td>
+
+                        </tr>
+                        <tr>
+                                <th>জন্মনিবন্ধন/ এনআইডি নাম্বার</th>
+                                <th>:</th>
+                                <td>&#x9EE;&#x9E8;&#x9ED;&#x9E9;&#x9EA;&#x9E8;&#x9E7;&#x9EE;&#x9EB;&#x9E8;</td>
+                                <th>জরুরী যোগাযোগের মোবাইল</th>
+                                <th>:</th>
+                                <td> 01332691735 </td>
+                        </tr>
+                        <tr>
+                            <th colspan="4">
+                                <h5 class="font-weight-bold" style="color:black;margin-top:20px;margin-bottom:1px;">&#x99C;&#x9B0;&#x9C1;&#x9B0;&#x9C0; &#x9AF;&#x9CB;&#x997;&#x9BE;&#x9AF;&#x9CB;&#x997; :</h5>
+                            </th>
+
+                        </tr>
+                        <tr>
+                            <th>নাম</th>
+                            <th>:</th>
+                            <td>&#x9AE;&#x9CB;&#x983; &#x99C;&#x9BE;&#x9AE;&#x9BE;&#x9B2; &#x9AE;&#x9BF;&#x9DF;&#x9BE;</td>
+
+                            <th>মোবাইল</th>
+                            <th>:</th>
+                            <td>01332691735</td>
+                        </tr>
+                        <tr>
+
+                                <th>সম্পর্ক</th>
+                                <th>:</th>
+                                <td>&#x9AC;&#x9BE;&#x9AC;&#x9BE;</td>
+                                <th>ঠিকানা</th>
+                                <th>:</th>
+                                <td>&#x9AE;&#x9A6;&#x9A8;&#x9AE;&#x9C1;&#x9B0;&#x9A4;, &#x9ED;&#x9A8;&#x982; &#x9AC;&#x9DC;&#x987;&#x989;&#x9DC;&#x9BF;, &#x9AC;&#x9BE;&#x9A8;&#x9BF;&#x9DF;&#x9BE;&#x99A;&#x982;, &#x9B9;&#x9AC;&#x9BF;&#x997;&#x99E;&#x9CD;&#x99C;,  &#x9B8;&#x9BF;&#x9B2;&#x9C7;&#x99F; </td>
+                        </tr>
+
+                </table>
+                    
+                </div>
+            </div>
+            <br />
+
+            <br />
+<span style="font-weight:bold;color:black;font-size:20px"><u>ঘটনার বিবরণ :</u></span>            <div class="row text-justify">
+                <div class="col-12" style="font-family:Kalpurush;font-size:20px;">
+                    <p style="font-size:20px;margin-bottom:-9px;">
+                         &#x9AC;&#x9B0;&#x9CD;&#x9A3;&#x9BF;&#x9A4; &#x9AA;&#x9BE;&#x9B8;&#x9AA;&#x9CB;&#x9B0;&#x9CD;&#x99F;&#x99F;&#x9BF; &#x9AE;&#x9C0;&#x9B0;&#x9C7;&#x9B0; &#x9AC;&#x9BE;&#x99C;&#x9BE;&#x9B0; &#x9B0;&#x9BE;&#x9B8;&#x9CD;&#x9A4;&#x9BE;&#x9B0; &#x9AE;&#x9CB;&#x9DC;&#x9C7; &#x9AA;&#x9BE;&#x9B0;&#x9CD;&#x9B6;&#x9CD;&#x9AC;&#x9C7; &#x9A8;&#x9BF;&#x99C;&#x9C7;&#x9B0; &#x985;&#x99C;&#x9BE;&#x9A8;&#x9CD;&#x9A4;&#x9C7; &#x9B9;&#x9BE;&#x9B0;&#x9BF;&#x9DF;&#x9C7; &#x9AF;&#x9BE;&#x9DF;&#x964; &#x9B8;&#x9AE;&#x9CD;&#x9AD;&#x9BE;&#x9AC;&#x9CD;&#x9AF; &#x9B8;&#x995;&#x9B2; &#x99C;&#x9BE;&#x9AF;&#x9BC;&#x997;&#x9BE;&#x9AF;&#x9BC; &#x996;&#x9CB;&#x981;&#x99C;&#x9BE;&#x996;&#x9C1;&#x981;&#x99C;&#x9BF; &#x995;&#x9B0;&#x9BE; &#x9B9;&#x9DF;&#x9C7;&#x99B;&#x9C7;, &#x98F;&#x996;&#x9A8; &#x9AA;&#x9B0;&#x9CD;&#x9AF;&#x9A8;&#x9CD;&#x9A4; &#x996;&#x9CB;&#x981;&#x99C;&#x9BE;&#x996;&#x9C1;&#x981;&#x99C;&#x9BF; &#x995;&#x9B0;&#x9C7;&#x993; &#x995;&#x9CB;&#x9A8;&#x9CB; &#x9B8;&#x9A8;&#x9CD;&#x9A7;&#x9BE;&#x9A8; &#x9AA;&#x9BE;&#x993;&#x9AF;&#x9BC;&#x9BE; &#x9AF;&#x9BE;&#x9AF;&#x9BC; &#x9A8;&#x9BE;&#x987;, &#x996;&#x9CB;&#x981;&#x99C;&#x9BE;&#x996;&#x9C1;&#x981;&#x99C;&#x9BF; &#x985;&#x9AC;&#x9CD;&#x9AF;&#x9BE;&#x9B9;&#x9A4; &#x986;&#x99B;&#x9C7;&#x964;
+                        এমতাবস্থায়, উপরোক্ত বিষয়টি ভবিষ্যতের জন্য সাধারন ডাইরীভূক্ত করিয়া রাখা একান্ত প্রয়োজন।
+                    </p>
+                    <p style="font-family:Kalpurush;font-size:20px;margin-top:10px;">
+                        অতএব, উপরোক্ত বিষয়টি আপনার থানায় সাধারন ডাইরীভূক্ত করিতে জনাবের মর্জি হয়।
+                    </p>
+                </div>
+            </div>
+
+
+
+            <br />
+            <div class="row">
+                    <div class="col-4" style="font-family: Kalpurush; font-size: 20px; text-align: center;">
+                                    <p style="margin-bottom:-4px;"><img src="/Upload/GenarelUser\638475205503848776.png" height="100" width="150" /></p>
+                        <p style="margin-bottom:-4px;font-size:20px;font-weight:bold">&#x987;&#x9AB;&#x9CD;&#x9B0;&#x9BE;&#x9B9;&#x9BF;&#x9AE; &#x9B0;&#x9C7;&#x9A6;&#x9C1;&#x9DF;&#x9BE;&#x9A8;</p>
+                        <p style="margin-bottom:-4px;">মোবাইল-&#x9E6;&#x9E7;&#x9E9;&#x9E6;&#x9E9;&#x9E8;&#x9E6;&#x9EE;&#x9EC;&#x9EB;&#x9EF;</p>
+                        <hr class="mb-0 mt-0 bg-dark" />
+                        <p>প্রস্তুতকারীর নাম ও স্বাক্ষর</p>
+                    </div>
+                    <div class="col-4"></div>
+
+                <div class="col-4" style="font-family:Kalpurush;font-size:20px;text-align:center;">
+                    <p style="margin-bottom:-4px;">বিনীত</p>
+                                <p style="margin-bottom:-4px;"><img src="/" height="100" width="150" /></p>
+                    <p style="margin-bottom:-4px;font-size:20px;font-weight:bold">&#x9AE;&#x9CB;&#x983; &#x9B8;&#x9BE;&#x9AE;&#x9B8;&#x9C1;&#x9B2; &#x9AE;&#x9BF;&#x9DF;&#x9BE;</p>
+                    <p style="margin-bottom:-4px;">মোবাইল-&#x9E6;&#x9E7;&#x9E9;&#x9E9;&#x9E8;&#x9EC;&#x9EF;&#x9E7;&#x9ED;&#x9E9;&#x9EB;</p>
+                </div>
+            </div>
+            <br />
+            <br />
+
+            <div class="row">
+                <div class="col-6 mb-4" style="font-family:Kalpurush;font-size:20px;">
+                    <p style="font-size:18px;margin-bottom:-9px;color:red;">
+                        <i>
+                        
+                        </i>
+                    </p>
+                </div>
+                <div class="col-6"></div>
+                <div class="col-4" style="font-family:Kalpurush;font-size:20px;text-align:center;">
+                        <p style="margin-bottom:-4px;"><img src="/EmpImages\5e757c08.jpeg" height="50" width="200" /></p>
+                        <p style="margin-bottom:-4px;font-size:20px;font-weight:bold">&#x9B6;&#x9AB;&#x9BF;&#x995;&#x9C1;&#x9B2; &#x987;&#x9B8;&#x9B2;&#x9BE;&#x9AE;</p>
+                        <p style="margin-bottom:-4px;">বিপি-&#x9EF;&#x9E8;&#x9E7;&#x9E7;&#x9E7;&#x9EA;&#x9EF;&#x9EC;&#x9ED;&#x9E8;</p>
+                        <p style="margin-bottom:-4px;">ডিউটি অফিসার</p>
+                        <p style="margin-bottom:-4px;">&#x9AA;&#x9C2;&#x9AC;&#x9BE;&#x987;&#x9B2; থানা</p>
+                        <p style="margin-bottom:-4px;">&#x99C;&#x9BF;&#x98F;&#x9AE;&#x9AA;&#x9BF;, &#x997;&#x9BE;&#x99C;&#x9C0;&#x9AA;&#x9C1;&#x9B0;।</p>
+                </div>
+                <div class="col-3"></div>
+                <div class="col-5" style="font-family:Kalpurush;font-size:20px;text-align:center;">
+                </div>
+            </div>
+
+            <br />
+            <br />
+            <br />
+            <div style="width:100%;text-align:center">
+                <u style="font-size:12px;color:red">** এটি একটি কম্পিউটার কর্তৃক প্রস্তুতকৃত দলিল, এতে কোন হস্তকৃত স্বাক্ষর এর প্রয়োজন নেই । **</u>
+            </div>
+        </div>
+
+        <div class="col-sm-1">
+        </div>
+    </div>
+</div>
+
+
+
+
+    </div>
+
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="/js/sb-admin-2.min.js"></script>
+
+    
+    <script type="text/javascript">
+        function printDiv(divName) {
+            var printContents = document.getElementById(divName).innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+        }
+        $(document).ready(function () {
+            var text = '<p class="watermark">Draft</p>';
+            if (12== 1 || 12== 2 || 12== 3 || 12== 7) {
+                $('#reportPage').append(text);
+            }
+        })
+    </script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
